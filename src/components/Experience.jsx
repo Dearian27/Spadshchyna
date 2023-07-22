@@ -1,15 +1,8 @@
-import {
-  ContactShadows,
-  Html,
-  OrbitControls,
-  Plane,
-  Stage,
-  Stars,
-  useHelper,
-} from '@react-three/drei';
+import { OrbitControls, useHelper } from '@react-three/drei';
 import { Map } from './Map';
 import { useRef } from 'react';
 import { DirectionalLightHelper } from 'three';
+import WaterPlane from './WaterPlane';
 
 export const Experience = () => {
   const lightRef = useRef();
@@ -28,22 +21,10 @@ export const Experience = () => {
         shadow-mapSize-height={512}
         shadow-mapSize-width={512}
       />
-      {/* <Stage
-        environment="sunset"
-        //   intensity={1}
-        //   shadows={{ type: 'accumulative', color: '#d5d5d5', colorBlend: 3, opacity: 0.4 }}
-        adjustCamera={0.7}> */}
-      <Map />
-      <Plane
-        receiveShadow // highlight- line
-        rotation={[-Math.PI / 2, 0, 0]}
-        position={[0, 0, 0]}
-        args={[15, 15]}>
-        <meshStandardMaterial attach="material" color="red" />
-      </Plane>
 
-      {/* </Stage> */}
-      {/* <ContactShadows scale={50} opacity={0.32} /> */}
+      <Map />
+      <WaterPlane />
+
       <OrbitControls
       //   makeDefault
       //   minPolarAngle={0}
@@ -51,6 +32,14 @@ export const Experience = () => {
       //   minDistance={17}
       //   maxDistance={30}
       />
+
+      {/* <Plane
+        receiveShadow // highlight- line
+        rotation={[-Math.PI / 2, 0, 0]}
+        position={[0, 0, 0]}
+        args={[15, 15]}>
+        <meshStandardMaterial attach="material" color="red" />
+      </Plane> */}
     </>
   );
 };
