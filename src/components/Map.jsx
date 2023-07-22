@@ -11,7 +11,12 @@ export function Map(props) {
   return (
     <group {...props} dispose={null}>
       <group position={[-0.559, 0, -0.032]} scale={50.404}>
-        <mesh castShadow geometry={nodes.Curve_1.geometry} material={materials.Material} />
+        <mesh
+          receiveShadow
+          castShadow
+          geometry={nodes.Curve_1.geometry}
+          material={materials.Material}
+        />
         <mesh castShadow geometry={nodes.Curve_2.geometry} material={materials['Material.001']} />
       </group>
     </group>
