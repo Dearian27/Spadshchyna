@@ -1,11 +1,12 @@
 import { ContactShadows, Html, OrbitControls, Shadow, Stage } from '@react-three/drei';
-import { Map } from './Map';
+import { Map } from './locations/Map';
 import { useEffect } from 'react';
 import { useControls } from 'leva';
-import { Museum } from './Museum';
+import { Museum } from './Signs/Museum';
 import { FrontSide } from 'three';
+import { Statue } from './Signs/Statue';
 
-export const Experience = () => {
+export const MapScene = () => {
 
   const {Mx, My, Mz, Mry, Mscale} = useControls({
     Mry: {
@@ -14,18 +15,18 @@ export const Experience = () => {
       value: 0,
     },
     Mx: {
-      min: -3,
-      max: 3,
+      min: -6,
+      max: 6,
       value: 0
     },
     My: {
-      min: -3,
-      max: 3,
+      min: -6,
+      max: 6,
       value: 0
     },
     Mz: {
-      min: -3,
-      max: 3,
+      min: -6,
+      max: 6,
       value: 0
     },
     Mscale: {
@@ -53,11 +54,23 @@ export const Experience = () => {
         
         <Map />
        
-        {/* <Museum 
-        scale={Mscale} 
+        {/* <Statue 
+        scale={0.08} 
         position={[Mx, My, Mz]}
         rotation={[0, Mry, 0]}
-        color="#E2CE9B"
+        // color="#E2CE9B"
+        /> */}
+        <Statue 
+        scale={0.08} 
+        position={[-5.8, 0.6, -1.3]}
+        rotation={[0, 2.52, 0]}
+        // color="#E2CE9B"
+        />
+        {/* <Statue 
+          scale={0.08} 
+          position={[-1.3, 0.54,-1.78]}
+          rotation={[0, 5.52, 0]}
+          // color="#E2CE9B"
         /> */}
         <Museum 
           scale={0.00065} 
@@ -65,8 +78,6 @@ export const Experience = () => {
           rotation={[0, 5.52, 0]}
           color="#E2CE9B"
         />
-
-      {/* <ContactShadows scale={30} opacity={0.32} /> */}
       <OrbitControls
         makeDefault
         minPolarAngle={0}
