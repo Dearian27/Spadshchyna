@@ -1,0 +1,18 @@
+.hint {
+  // font-size: 20px;
+  font-size: 40px;
+  color: white;
+  margin-left: -50%;
+  font-family: 'Fixel';
+  opacity: 0;
+  visibility: 0;
+  transition: 1s;
+  
+  &.active {
+    visibility: 1;
+    opacity: 1;
+  }
+}
+.active {
+  opacity: 1;
+}
