@@ -1,4 +1,4 @@
-import StatueScene from './components/StatueScene';
+import StatueScene from './pages/locations/StatueScene';
 import { Route, Routes } from 'react-router-dom';
 import Main from './pages/Main';
 

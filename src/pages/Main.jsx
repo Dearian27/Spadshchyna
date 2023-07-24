@@ -8,7 +8,7 @@ import { Loader } from '@react-three/drei';
 const Main = () => {
   return (
     <>
-      <Canvas shadows camera={{ position: [0, 9, 10], fov: 30 }}>
+      <Canvas shadows camera={{ position: [0, 13, 15], fov: 30 }}>
         <Suspense fallback={null}>
           <Background />
           <Experience />

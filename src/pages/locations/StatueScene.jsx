@@ -1,6 +1,6 @@
 import React from 'react';
-import { Statue } from './Statue';
-import { Background } from './Background';
+import { Statue } from '../../components/Statue';
+import { Background } from '../../components/Background';
 import { Loader, OrbitControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import { Suspense } from 'react';
