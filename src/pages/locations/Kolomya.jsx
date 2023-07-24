@@ -1,5 +1,5 @@
-import { Statue } from "../signs/Statue"
-import { Museum } from "../signs/Museum"
+import { Statue } from "../../components/signs/Statue"
+import { Museum } from "../../components/signs/Museum"
 import { OrbitControls } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
 

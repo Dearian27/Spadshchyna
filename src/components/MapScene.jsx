@@ -1,9 +1,8 @@
 import { ContactShadows, Html, OrbitControls, Shadow, Stage } from '@react-three/drei';
-import { Map } from './locations/Map';
+import { Map } from '../pages/locations/Map';
 import { useEffect } from 'react';
 import { useControls } from 'leva';
 import { Museum } from './signs/Museum';
-import { FrontSide } from 'three';
 import { Statue } from './signs/Statue';
 import {useNavigate} from 'react-router-dom';
 
