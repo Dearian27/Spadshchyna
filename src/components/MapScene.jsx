@@ -2,11 +2,13 @@ import { ContactShadows, Html, OrbitControls, Shadow, Stage } from '@react-three
 import { Map } from './locations/Map';
 import { useEffect } from 'react';
 import { useControls } from 'leva';
-import { Museum } from './Signs/Museum';
+import { Museum } from './signs/Museum';
 import { FrontSide } from 'three';
-import { Statue } from './Signs/Statue';
+import { Statue } from './signs/Statue';
+import {useNavigate} from 'react-router-dom';
 
 export const MapScene = () => {
+  const navigate = useNavigate();
 
   const {Mx, My, Mz, Mry, Mscale} = useControls({
     Mry: {
@@ -73,6 +75,7 @@ export const MapScene = () => {
           // color="#E2CE9B"
         /> */}
         <Museum 
+          onClick={() => {navigate('/eggs')}}
           scale={0.00065} 
           position={[-1.3, 0.54,-1.78]}
           rotation={[0, 5.52, 0]}
