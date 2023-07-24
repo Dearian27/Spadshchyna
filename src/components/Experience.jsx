@@ -3,6 +3,7 @@ import { Map } from './Map';
 import { useRef } from 'react';
 import { DirectionalLightHelper } from 'three';
 import WaterPlane from './WaterPlane';
+import { Statue } from './Statue';
 
 export const Experience = () => {
   const lightRef = useRef();
@@ -16,12 +17,13 @@ export const Experience = () => {
         ref={lightRef}
         castShadow
         scale={3}
-        position={[5, 2, -2]}
+        position={[5, 3.5, -2]}
         intensity={0.5}
         shadow-mapSize-height={512}
         shadow-mapSize-width={512}
       />
 
+      <Statue position={[-5.5, 0.62, -1.5]} rotation-y={180} />
       <Map />
       <WaterPlane />
 
@@ -32,14 +34,6 @@ export const Experience = () => {
       //   minDistance={17}
       //   maxDistance={30}
       />
-
-      {/* <Plane
-        receiveShadow // highlight- line
-        rotation={[-Math.PI / 2, 0, 0]}
-        position={[0, 0, 0]}
-        args={[15, 15]}>
-        <meshStandardMaterial attach="material" color="red" />
-      </Plane> */}
     </>
   );
 };

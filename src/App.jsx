@@ -1,17 +1,14 @@
-import { Canvas } from '@react-three/fiber';
-import { Experience } from './components/Experience';
-import { Background } from './components/Background';
-import { Html } from '@react-three/drei';
+import StatueScene from './components/StatueScene';
+import { Route, Routes } from 'react-router-dom';
+import Main from './pages/Main';
 
 function App() {
   return (
     <>
-      <Canvas shadows camera={{ position: [0, 9, 8], fov: 30 }}>
-        <Background />
-        <Experience />
-        {/* <AdaptiveDpr />
-        <AdaptiveEvents /> */}
-      </Canvas>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/statue" element={<StatueScene />} />
+      </Routes>
     </>
   );
 }
