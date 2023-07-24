@@ -17,7 +17,7 @@ export const Experience = () => {
         ref={lightRef}
         castShadow
         scale={3}
-        position={[5, 3.5, -2]}
+        position={[-5, 3, -2]}
         intensity={0.5}
         shadow-mapSize-height={512}
         shadow-mapSize-width={512}

@@ -18,10 +18,11 @@ export function Statue(props) {
   return (
     <group onClick={handleClick} {...props} dispose={null} scale={0.1}>
       <group position={[-0.012, 1.28, -0.182]} rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
-        <mesh geometry={nodes.Oleg01.geometry} material={materials.Glass} />
-        <mesh geometry={nodes.Oleg01_1.geometry} material={materials.Glass} />
+        <mesh castShadow geometry={nodes.Oleg01.geometry} material={materials.Glass} />
+        <mesh castShadow geometry={nodes.Oleg01_1.geometry} material={materials.Glass} />
       </group>
       <mesh
+        castShadow
         geometry={nodes.Cylinder.geometry}
         material={materials.Glass}
         position={[0.05, -3.14, 0.019]}
@@ -29,6 +30,7 @@ export function Statue(props) {
         scale={0.01}
       />
       <mesh
+        castShadow
         geometry={nodes.Sphere.geometry}
         material={materials.Glass}
         position={[-0.004, 4.615, -0.16]}
