@@ -7,12 +7,9 @@ import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useSpring, animated } from '@react-spring/three';
 import { useFrame } from '@react-three/fiber';
-import { raf } from '@react-spring/rafz';
 
 export function Boat(props) {
   const { nodes, materials } = useGLTF('models/boat.gltf');
-
-  raf.frameLoop = 'always';
 
   const boatRef = useRef();
   const radius = 0.45;
