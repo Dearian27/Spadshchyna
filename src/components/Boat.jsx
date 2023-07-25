@@ -5,11 +5,34 @@ Command: npx gltfjsx@6.2.9 public/models/boat.gltf
 
 import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
+import { useSpring, animated } from '@react-spring/three';
+import { useFrame } from '@react-three/fiber';
+import { raf } from '@react-spring/rafz';
 
 export function Boat(props) {
   const { nodes, materials } = useGLTF('models/boat.gltf');
+
+  raf.frameLoop = 'always';
+
+  const boatRef = useRef();
+  const radius = 0.45;
+  const amplitude = 0.01;
+  let time = 0;
+
+  useFrame((_state, delta) => {
+    time += delta;
+    boatRef.current.rotation.y += 0.25 * delta;
+
+    const angle = -boatRef.current.rotation.y;
+    const x = Math.cos(angle) * radius;
+    const z = Math.sin(angle) * radius;
+    const y = Math.sin(time * 1.5) * amplitude + 0.08; // Calculate the wave movement
+
+    boatRef.current.position.set(x + -0.5, y, 3.45 + z);
+  });
+
   return (
-    <group {...props} dispose={null}>
+    <group ref={boatRef} scale={0.8} {...props} dispose={null}>
       <group position={[0, 0, 0.002]} rotation={[Math.PI / 2, 0, -0.009]} scale={0.01}>
         <group position={[-0.054, -21.034, 12.288]}>
           <mesh

@@ -1,9 +1,9 @@
 import { OrbitControls, useHelper } from '@react-three/drei';
 import { Map } from './Map';
 import { useRef } from 'react';
-import { DirectionalLightHelper, SpotLightHelper } from 'three';
-import WaterPlane from './WaterPlane';
 import { Statue } from './Statue';
+import Boats from './Boats';
+import { WaterPlane } from './WaterPlane';
 
 export const Experience = () => {
   const lightRef1 = useRef();
@@ -47,14 +47,14 @@ export const Experience = () => {
 
       <Statue position={[-5.5, 0.62, -1.5]} rotation-y={180} />
       <Map />
+      <Boats />
       <WaterPlane />
-
       <OrbitControls
-        makeDefault
-        minPolarAngle={0}
-        maxPolarAngle={Math.PI / 3}
-        minDistance={17}
-        maxDistance={30}
+      //   makeDefault
+      //   minPolarAngle={0}
+      //   maxPolarAngle={Math.PI / 3}
+      //   minDistance={17}
+      //   maxDistance={30}
       />
     </>
   );
