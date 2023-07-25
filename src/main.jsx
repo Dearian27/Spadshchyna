@@ -12,7 +12,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <>
     <BrowserRouter>
       <App />
-      <Leva />
+      <Leva hidden />
     </BrowserRouter>
   </>,
 );
