@@ -1,9 +1,7 @@
-import { Canvas } from '@react-three/fiber';
-import { Background } from './components/Background';
-import { AdaptiveDpr, AdaptiveEvents, Html, SoftShadows } from '@react-three/drei';
-import { Router, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import { Kolomya } from './pages/locations/Kolomya';
+import StatueScene from './pages/locations/StatueScene';
+import { Route, Routes } from 'react-router-dom';
+import Main from './pages/Main';
+import { Globals } from '@react-spring/three';
 import SpringTest from './pages/SpringTest';
 
 
@@ -11,9 +9,9 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/eggs' element={<Kolomya />} />
-        <Route path='/spring' element={<SpringTest />} />
+        <Route path="/" element={<Main />} />
+        <Route path="/statue" element={<StatueScene />} />
+        <Route path="/spring" element={<SpringTest />} />
       </Routes>
     </>
   );
