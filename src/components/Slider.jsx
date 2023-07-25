@@ -41,8 +41,7 @@ export const Slider = ({data}) => {
 
   return(
     <>
-    {/* <animated.h3 style={props}>{data[current]}</animated.h3> */}
-    <animated.h3 style={{ ...props }}>
+    <animated.h3 style={{...props, fontFamily: "Fixel"}}>
         {data[current]}
       </animated.h3>
     </>
