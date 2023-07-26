@@ -1,9 +1,7 @@
 import StatueScene from './pages/locations/StatueScene';
 import { Route, Routes } from 'react-router-dom';
 import Main from './pages/Main';
-import { Globals } from '@react-spring/three';
-import SpringTest from './pages/SpringTest';
-import BoxSpring from './pages/BoxSpring';
+import Framer from './pages/Framer';
 
 
 function App() {
@@ -12,8 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/statue" element={<StatueScene />} />
-        {/* <Route path="/spring" element={<SpringTest />} /> */}
-        <Route path="/spring" element={<BoxSpring />} />
+        <Route path="/spring" element={<Framer />} />
       </Routes>
     </>
   );
