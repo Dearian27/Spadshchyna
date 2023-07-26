@@ -6,14 +6,14 @@ Command: npx gltfjsx@6.2.9 public/models/statue.gltf
 import React from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useNavigate } from 'react-router-dom';
-import { config, useSpring, animated } from '@react-spring/three';
+import { useSpring, animated } from '@react-spring/three';
 
 export function Statue(props) {
-  const {scale} = useSpring({
+  const { scale } = useSpring({
     from: {
-      scale: 0.01
+      scale: 0,
     },
-    to: [{scale: 0.1}],
+    to: [{ scale: 0.1 }],
     config: {
       mass: 5,
       tension: 400,

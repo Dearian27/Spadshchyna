@@ -1,10 +1,10 @@
-import { useSpring, animated } from '@react-spring/web'
+import { useSpring, animated } from '@react-spring/web';
 
-export default function BoxSpring() {
+const BoxSpring = () => {
   const springs = useSpring({
-    from: { x: 0 },
+    from: { x: 10 },
     to: { x: 100 },
-  })
+  });
 
   return (
     <animated.div
@@ -13,8 +13,10 @@ export default function BoxSpring() {
         height: 80,
         background: '#ff6d6d',
         borderRadius: 8,
-        ...springs
+        ...springs,
       }}
     />
-  )
-}
+  );
+};
+
+export default BoxSpring;
