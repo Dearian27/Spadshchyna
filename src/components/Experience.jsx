@@ -10,8 +10,10 @@ export const Experience = () => {
     <>
       <ambientLight intensity={0.4} />
       <Lights />
-
-      <Statue position={[-5.5, 0.62, -1.5]} rotation-y={180} />
+      <Statue delay={2000} position={[-5.5, 0.62, -1.5]} rotation-y={180} />
+      <Statue delay={2300} position={[-4.5, 0.62, 0]} rotation-y={180} />
+      <Statue delay={2600} position={[-3.5, 0.62, -1]} rotation-y={180} />
+      <Statue delay={2900} position={[-2, 0.62, -2]} rotation-y={180} />
       <Map />
       <Boats />
       <WaterPlane />

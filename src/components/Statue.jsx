@@ -19,7 +19,7 @@ export function Statue(props) {
       tension: 400,
       friction: 50,
     },
-    // loop: true
+    delay: props.delay || 0,
   });
 
   const { nodes, materials } = useGLTF('/models/statue.gltf');

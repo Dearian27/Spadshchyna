@@ -12,7 +12,6 @@ const data = [
 ]
 
 const SpringTest = () => {
-  const [isScrolling, setIsScrolling] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const divRef = useRef();

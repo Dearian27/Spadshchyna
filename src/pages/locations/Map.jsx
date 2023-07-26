@@ -4,13 +4,26 @@ Command: npx gltfjsx@6.2.9 ./public/models/map.gltf
 */
 
 import React, { useRef } from 'react';
+import {useSpring, animated} from '@react-spring/three';
 import { useGLTF } from '@react-three/drei';
 
 export function Map(props) {
   const { nodes, materials } = useGLTF('./models/map.gltf');
+  
+  const {scale} = useSpring({
+    from: {
+      scale: 1
+    },
+    to: [{scale: 50.404}],
+    config: {
+      mass: 5,
+      tension: 400,
+      friction: 50,
+    },
+  });
   return (
     <group {...props} dispose={null}>
-      <group position={[-0.559, 0, -0.032]} scale={50.404}>
+      <animated.group position={[-0.559, 0, -0.032]} scale={scale}>
         <mesh
           receiveShadow
           castShadow
@@ -18,7 +31,7 @@ export function Map(props) {
           material={materials.Material}
         />
         <mesh castShadow geometry={nodes.Curve_2.geometry} material={materials['Material.001']} />
-      </group>
+      </animated.group>
     </group>
   );
 }
