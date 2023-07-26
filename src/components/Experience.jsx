@@ -4,6 +4,7 @@ import { Statue } from './Statue';
 import Boats from './Boats';
 import { WaterPlane } from './WaterPlane';
 import Lights from './Lights';
+import { Eggscene } from './Eggscene';
 
 export const Experience = () => {
   return (
@@ -17,7 +18,6 @@ export const Experience = () => {
       <Map />
       <Boats />
       <WaterPlane />
-
       <OrbitControls
       //   makeDefault
       //   minPolarAngle={0}
