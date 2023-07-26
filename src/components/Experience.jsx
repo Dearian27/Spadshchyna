@@ -1,5 +1,5 @@
 import { OrbitControls } from '@react-three/drei';
-import { Map } from './Map';
+import { Map } from '../pages/locations/Map';
 import { Statue } from './Statue';
 import Boats from './Boats';
 import { WaterPlane } from './WaterPlane';

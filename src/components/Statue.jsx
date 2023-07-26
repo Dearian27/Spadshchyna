@@ -6,7 +6,7 @@ Command: npx gltfjsx@6.2.9 public/models/statue.gltf
 import React from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useNavigate } from 'react-router-dom';
-import { useSpring } from 'react-spring';
+import { config, useSpring, animated } from '@react-spring/three';
 
 export function Statue(props) {
   const {scale} = useSpring({
@@ -14,7 +14,12 @@ export function Statue(props) {
       scale: 0.01
     },
     to: [{scale: 0.1}],
-    config: config.stiff
+    config: {
+      mass: 5,
+      tension: 400,
+      friction: 50,
+    },
+    // loop: true
   });
 
   const { nodes, materials } = useGLTF('/models/statue.gltf');
@@ -24,7 +29,7 @@ export function Statue(props) {
   };
 
   return (
-    <group onClick={handleClick} {...props} dispose={null} scale={scale}>
+    <animated.group onClick={handleClick} {...props} dispose={null} scale={scale}>
       <group position={[-0.012, 1.28, -0.182]} rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
         <mesh castShadow geometry={nodes.Oleg01.geometry} material={materials.Glass} />
         <mesh castShadow geometry={nodes.Oleg01_1.geometry} material={materials.Glass} />
@@ -45,7 +50,7 @@ export function Statue(props) {
         rotation={[Math.PI / 2, 0, 0]}
         scale={0.01}
       />
-    </group>
+    </animated.group>
   );
 }
 

@@ -10,10 +10,6 @@ export function Map(props) {
   const { nodes, materials } = useGLTF('./models/map.gltf');
   return (
     <group {...props} dispose={null}>
-<<<<<<< HEAD:src/pages/locations/Map.jsx
-      <group position={[-0.559, 0, -0.032]} scale={50}>
-        <mesh receiveShadow castShadow geometry={nodes.Curve_1.geometry} material={materials.Material} />
-=======
       <group position={[-0.559, 0, -0.032]} scale={50.404}>
         <mesh
           receiveShadow
@@ -21,7 +17,6 @@ export function Map(props) {
           geometry={nodes.Curve_1.geometry}
           material={materials.Material}
         />
->>>>>>> develop:src/components/Map.jsx
         <mesh castShadow geometry={nodes.Curve_2.geometry} material={materials['Material.001']} />
       </group>
     </group>
