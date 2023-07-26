@@ -6,17 +6,25 @@ Command: npx gltfjsx@6.2.9 public/models/statue.gltf
 import React from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useNavigate } from 'react-router-dom';
+import { useSpring } from 'react-spring';
 
 export function Statue(props) {
+  const {scale} = useSpring({
+    from: {
+      scale: 0.01
+    },
+    to: [{scale: 0.1}],
+    config: config.stiff
+  });
+
   const { nodes, materials } = useGLTF('/models/statue.gltf');
   const navigate = useNavigate();
-
   const handleClick = () => {
     navigate('/statue');
   };
 
   return (
-    <group onClick={handleClick} {...props} dispose={null} scale={0.1}>
+    <group onClick={handleClick} {...props} dispose={null} scale={scale}>
       <group position={[-0.012, 1.28, -0.182]} rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
         <mesh castShadow geometry={nodes.Oleg01.geometry} material={materials.Glass} />
         <mesh castShadow geometry={nodes.Oleg01_1.geometry} material={materials.Glass} />
