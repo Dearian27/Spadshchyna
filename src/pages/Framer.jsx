@@ -1,6 +1,5 @@
 import React from 'react'
 import Fullpage, {FullPageSections, FullpageSection, FullpageNavigation} from '@ap.cx/react-fullpage';
-import { LazyMotion, domAnimation, motion, useAnimate, useMotionValue, useTransform } from "framer-motion"
 import { useState } from 'react';
 import { Reveal } from '../components/Reveal';
 

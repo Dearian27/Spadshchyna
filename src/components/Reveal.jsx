@@ -14,10 +14,13 @@ export const Reveal = ({children, width='fit-content', delay = 0.25}) => {
   }, [isInView])
 
   return (
-    <div ref={ref} style={{position: 'relative', width, overflow: "hidden", zIndex: 100100}}>
+    <div ref={ref} style={{position: 'relative', width, 
+    // overflow: "hidden",
+     zIndex: 100100}}>
         <motion.div
           variants={{
-            hidden: {opacity: 0, y: '2em'},
+            hidden: {opacity: 0, x: '-100%'},
+            // hidden: {opacity: 0, y: '2em'},
             visible: {opacity: 1, y: 0},
           }}
           initial="hidden"
