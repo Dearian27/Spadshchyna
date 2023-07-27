@@ -5,7 +5,8 @@ import { Background } from '../../components/Background';
 import { Eggscene } from '../../components/Eggscene';
 import { useSpring, animated } from '@react-spring/three';
 import Fullpage, {FullPageSections, FullpageSection, FullpageNavigation} from '@ap.cx/react-fullpage';
-import {Reveal} from '../../components/Reveal';
+import {Reveal} from '../../components/framer/Reveal';
+import { Portal } from '../../components/framer/Portal';
 
 const KolomuyaScene = () => {
   const SectionStyle = {
@@ -41,12 +42,23 @@ const KolomuyaScene = () => {
       <Fullpage>
         <FullpageNavigation style={{zIndex: 10001}} />
         <FullPageSections>
+          {/* first slide */}
           <FullpageSection style={SectionStyle}>
             <Reveal>
-            <h3 style={{fontFamily: "Fixel"}}>
-              This is the 1st screen.
-            </h3>
+            <h1 style={{fontFamily: "Fixel", textTransform: 'uppercase', fontSize: 45}}>
+              Музей Писанки
+            </h1>
             </Reveal>
+            <Portal>
+            <h1 style={{fontFamily: "Fixel", textTransform: 'uppercase'}}>
+              Музей Писанки
+            </h1>
+            </Portal>
+            <Portal>
+            <h1 style={{fontFamily: "Fixel", textTransform: 'uppercase'}}>
+              Музей Писанки
+            </h1>
+            </Portal>
           </FullpageSection>
           <FullpageSection style={SectionStyle}>
           <Reveal>

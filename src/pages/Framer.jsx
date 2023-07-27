@@ -1,7 +1,7 @@
 import React from 'react'
 import Fullpage, {FullPageSections, FullpageSection, FullpageNavigation} from '@ap.cx/react-fullpage';
 import { useState } from 'react';
-import { Reveal } from '../components/Reveal';
+import { Reveal } from '../components/framer/Reveal';
 
 export default function Framer({children}) {
 

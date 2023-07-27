@@ -3,7 +3,9 @@
   width: 100%;
   height: 100vh;
 }
-body {
+body,
+* {
+  padding: 0;
   margin: 0;
 }
 div [role='button'] {
@@ -11,5 +13,5 @@ div [role='button'] {
 }
 
 canvas {
-   z-index: 1;
+  z-index: 1;
 }
