@@ -22,71 +22,18 @@ export function Eggscene(props) {
         eggRotation: Math.PI / 2,
         posY: -0.53,
       },
-       {
+      {
         eggRotation: Math.PI,
         posY: -0.51,
       },
-       {
+      {
         eggRotation: 1.5 * Math.PI,
         posY: -0.53,
       },
-       {
+      {
         eggRotation: 2 * Math.PI,
         posY: -0.55,
       },
-      // {
-      //   eggRotation: -Math.PI / 4,
-      //   posY: -0.54,
-      // },
-      // {
-      //   eggRotation: -Math.PI / 2,
-      //   posY: -0.53,
-      // },
-      // {
-      //   posY: -0.52,
-      //   eggRotation: -Math.PI,
-      // },
-      // {
-      //   posY: -0.53,
-      //   eggRotation: -1.25 * Math.PI,
-      // },
-      // {
-      //   posY: -0.54,
-      //   eggRotation: -1.5 * Math.PI,
-      // },
-      // {
-      //   posY: -0.55,
-      //   eggRotation: -1.75 * Math.PI,
-      // },
-      // {
-      //   posY: -0.54,
-      //   eggRotation: -2 * Math.PI,
-      // },
-      // {
-      //   posY: -0.53,
-      //   eggRotation: -1.75 * Math.PI,
-      // },
-      // {
-      //   posY: -0.52,
-      //   eggRotation: -1.5 * Math.PI,
-      // },
-      // {
-      //   posY: -0.53,
-      //   eggRotation: -1.25 * Math.PI,
-      // },
-      // {
-      //   posY: -0.54,
-      //   eggRotation: -Math.PI,
-      // },
-      // {
-      //   eggRotation: -Math.PI / 2,
-      //   posY: -0.55,
-      // },
-      // {
-      //   eggRotation: -Math.PI / 4,
-      //   posY: -0.55,
-      // },
-      
     ],
     config: {
       duration: 2500,
@@ -987,28 +934,52 @@ export function Eggscene(props) {
         rotation={[Math.PI / 2, 0, 0]}
         scale={0.01}
       />
-      <animated.group rotation-y={eggRotation} position={[-3.205, -0.547, -0.664]} position-y={posY} scale={0.163}>
+      <animated.group
+        rotation-y={eggRotation}
+        position={[-3.205, -0.547, -0.664]}
+        position-y={posY}
+        scale={0.163}>
         <mesh geometry={nodes.Sphere001_1.geometry} material={materials['Material.017']} />
         <mesh geometry={nodes.Sphere001_2.geometry} material={materials['Material.009']} />
       </animated.group>
-      <animated.group rotation-y={eggRotation} position={[-4.205, -0.547, -0.664]} position-y={posY} scale={0.163}>
+      <animated.group
+        rotation-y={eggRotation}
+        position={[-4.205, -0.547, -0.664]}
+        position-y={posY}
+        scale={0.163}>
         <mesh geometry={nodes.Sphere002_1.geometry} material={materials['Material.009']} />
         <mesh geometry={nodes.Sphere002_2.geometry} material={materials['Material.012']} />
       </animated.group>
-      <animated.group rotation-y={eggRotation} position={[-5.205, -0.547, -0.664]} position-y={posY} scale={0.163}>
+      <animated.group
+        rotation-y={eggRotation}
+        position={[-5.205, -0.547, -0.664]}
+        position-y={posY}
+        scale={0.163}>
         <mesh geometry={nodes.Sphere003_1.geometry} material={materials['Material.017']} />
         <mesh geometry={nodes.Sphere003_2.geometry} material={materials['Material.009']} />
         <mesh geometry={nodes.Sphere003_3.geometry} material={materials['Material.012']} />
       </animated.group>
-      <animated.group rotation-y={eggRotation} position={[-5.205, -0.547, 0.674]} position-y={posY} scale={0.163}>
+      <animated.group
+        rotation-y={eggRotation}
+        position={[-5.205, -0.547, 0.674]}
+        position-y={posY}
+        scale={0.163}>
         <mesh geometry={nodes.Sphere004_1.geometry} material={materials['Material.017']} />
         <mesh geometry={nodes.Sphere004_2.geometry} material={materials['Material.009']} />
       </animated.group>
-      <animated.group rotation-y={eggRotation} position={[-4.205, -0.547, 0.674]} position-y={posY} scale={0.163}>
+      <animated.group
+        rotation-y={eggRotation}
+        position={[-4.205, -0.547, 0.674]}
+        position-y={posY}
+        scale={0.163}>
         <mesh geometry={nodes.Sphere005_1.geometry} material={materials['Material.009']} />
         <mesh geometry={nodes.Sphere005_2.geometry} material={materials['Material.017']} />
       </animated.group>
-      <animated.group rotation-y={eggRotation} position={[-3.205, -0.547, 0.674]} position-y={posY} scale={0.163}>
+      <animated.group
+        rotation-y={eggRotation}
+        position={[-3.205, -0.547, 0.674]}
+        position-y={posY}
+        scale={0.163}>
         <mesh geometry={nodes.Sphere006.geometry} material={materials['Material.009']} />
         <mesh geometry={nodes.Sphere006_1.geometry} material={materials['Material.012']} />
       </animated.group>

@@ -9,3 +9,7 @@ body {
 div [role='button'] {
   background-color: white !important;
 }
+
+canvas {
+   z-index: 1;
+}
