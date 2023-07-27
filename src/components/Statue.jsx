@@ -4,9 +4,10 @@ Command: npx gltfjsx@6.2.9 public/models/statue.gltf
 */
 
 import React from 'react';
-import { useGLTF } from '@react-three/drei';
+import { useCursor, useGLTF } from '@react-three/drei';
 import { useNavigate } from 'react-router-dom';
 import { useSpring, animated } from '@react-spring/three';
+import { useState } from 'react';
 
 export function Statue(props) {
   const { scale } = useSpring({
@@ -24,12 +25,31 @@ export function Statue(props) {
 
   const { nodes, materials } = useGLTF('/models/statue.gltf');
   const navigate = useNavigate();
+
+  const [hovered, setHovered] = useState(false);
+  useCursor(hovered);
+
   const handleClick = () => {
-    navigate('/statue');
+    navigate(`/${props.route}`);
+  };
+
+  const handlePointerOver = () => {
+    setHovered(true);
+    props.gotoAnnotation(props.markIndex);
+  };
+  const handlePointerOut = () => {
+    setHovered(false);
+    props.gotoAnnotation(-1);
   };
 
   return (
-    <animated.group onClick={handleClick} {...props} dispose={null} scale={scale}>
+    <animated.group
+      onPointerOver={handlePointerOver}
+      onPointerOut={handlePointerOut}
+      onClick={handleClick}
+      {...props}
+      dispose={null}
+      scale={scale}>
       <group position={[-0.012, 1.28, -0.182]} rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
         <mesh castShadow geometry={nodes.Oleg01.geometry} material={materials.Glass} />
         <mesh castShadow geometry={nodes.Oleg01_1.geometry} material={materials.Glass} />

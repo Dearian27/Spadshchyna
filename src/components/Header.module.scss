@@ -6,15 +6,11 @@
   padding: 0px 50px;
   position: absolute;
   z-index: 10;
-  background-color: "white";
   width: 100%;
   height: 70;
   transition: background-color 0.35s;
-  &:hover {
-    background-color: white;
-  }
   .logo {
-    color: black;
+    color: #7f5132;
     font-family: "Fixel";
     cursor: pointer;
   }
@@ -24,8 +20,8 @@
     padding-top: 8px;
     border: none;
     border-radius: 50px;
-    background-color: lightblue;
-    color: black;
+    background-color: #d18754;
+    color: #4a2f1c;
     font-weight: 700;
     font-size: 18px;
     font-family: "Fixel";

@@ -1,20 +1,62 @@
-import { OrbitControls } from '@react-three/drei';
+import { Html, OrbitControls } from '@react-three/drei';
 import { Map } from '../pages/locations/Map';
 import { Statue } from './Statue';
 import Boats from './Boats';
 import { WaterPlane } from './WaterPlane';
 import Lights from './Lights';
-import { Eggscene } from './Eggscene';
+import { useState } from 'react';
+import annotations from '../assets/annotations.json';
+
+function Annotations({ selected, gotoAnnotation }) {
+  return (
+    <>
+      {annotations.map((a, i) => {
+        return (
+          <Html key={i} position={[a.markPos.x, a.markPos.y, a.markPos.z]}>
+            {a.description && i === selected && (
+              <div
+                id={'desc_' + i}
+                className="annotationDescription"
+                dangerouslySetInnerHTML={{ __html: a.description }}
+              />
+            )}
+          </Html>
+        );
+      })}
+    </>
+  );
+}
 
 export const Experience = () => {
+  const [selected, setSelected] = useState(-1);
+
+  function gotoAnnotation(idx) {
+    setSelected(idx);
+  }
+  const handlePointerDown = (idx) => {
+    setSelected(idx);
+  };
+
   return (
     <>
       <ambientLight intensity={0.4} />
       <Lights />
-      <Statue delay={2000} position={[-5.5, 0.62, -1.5]} rotation-y={180} />
-      <Statue delay={2300} position={[-4.5, 0.62, 0]} rotation-y={180} />
-      <Statue delay={2600} position={[-3.5, 0.62, -1]} rotation-y={180} />
-      <Statue delay={2900} position={[-2, 0.62, -2]} rotation-y={180} />
+      {annotations.map((item, index) => {
+        return (
+          <Statue
+            markIndex={index}
+            gotoAnnotation={gotoAnnotation}
+            selected={selected}
+            key={index}
+            delay={item.delay}
+            position={[item.markPos.x, item.markPos.y, item.markPos.z]}
+            rotation-y={180}
+            route={item.route}
+          />
+        );
+      })}
+
+      <Annotations selected={selected} gotoAnnotation={gotoAnnotation} />
       <Map />
       <Boats />
       <WaterPlane />

@@ -10,8 +10,6 @@ import { useSpring, animated } from '@react-spring/three';
 export function Eggscene(props) {
   const { nodes, materials } = useGLTF('./models/kolomuya.gltf');
 
-  const STEP_DURATION = 2000;
-
   const { eggRotation, posY } = useSpring({
     from: {
       eggRotation: 0,
@@ -187,6 +185,7 @@ export function Eggscene(props) {
         <mesh geometry={nodes.Mesh_1.geometry} material={materials.standard_surface_6} />
         <mesh geometry={nodes.Mesh_2.geometry} material={materials.standard_surface_7} />
       </group>
+
       <mesh
         geometry={nodes.Plane_1.geometry}
         material={materials.sidewalk}

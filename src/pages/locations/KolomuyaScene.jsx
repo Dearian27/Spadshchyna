@@ -1,5 +1,5 @@
-import { OrbitControls, PointerLockControls } from '@react-three/drei';
-import { Canvas } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
+import { Canvas, useFrame } from '@react-three/fiber';
 import Lights from '../../components/Lights';
 import { Background } from '../../components/Background';
 import { Eggscene } from '../../components/Eggscene';
@@ -51,12 +51,12 @@ const KolomuyaScene = () => {
             </Reveal>
             <Portal>
             <h1 style={{fontFamily: "Fixel", textTransform: 'uppercase'}}>
-              Музей Писанки
+              Місто: Коломия
             </h1>
             </Portal>
             <Portal>
             <h1 style={{fontFamily: "Fixel", textTransform: 'uppercase'}}>
-              Музей Писанки
+              Область: Івано-франківська
             </h1>
             </Portal>
           </FullpageSection>

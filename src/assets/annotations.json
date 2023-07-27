@@ -1,0 +1,44 @@
+[
+   {
+     "title": "Scene 1",
+     "description": "<p>Description of scene #1</p>",
+      "markPos": {
+         "x": -5.5,
+         "y": 0.62,
+         "z": -1.5
+      },
+      "delay": 2000,
+      "route": "scene"
+   },
+   {
+      "title": "Scene 2",
+      "description": "<p>Description of scene #2</p>",
+      "markPos": {
+         "x": -4.5,
+         "y": 0.62,
+         "z": 0
+      },
+      "delay": 2300
+   },
+   {
+      "title": "Scene 3",
+      "description": "<p>Description of scene #3</p>",
+      "markPos": {
+         "x": -3.5,
+         "y": 0.62,
+         "z": -1
+      },
+      "delay": 2600
+   },
+   {
+      "title": "Scene 4",
+      "description": "<p>Description of scene #4</p>",
+      "markPos": {
+         "x": -2,
+         "y": 0.62,
+         "z": -2
+      },
+      "delay": 2900
+   }
+ ]
+ 
