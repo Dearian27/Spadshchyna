@@ -13,13 +13,14 @@ export default function Framer({children}) {
     flexDirection: 'column',
     justifyContent: 'center',
     alighItems: 'center',
+    backgroundColor: "none",
   }
   return (
     <>
+    {children}
     <Fullpage>
-      <FullpageNavigation />
+      <FullpageNavigation style={{zIndex: 10001}} />
       <FullPageSections>
-      {children}
         <FullpageSection style={SectionStyle}>
           <Reveal>
           <h3 style={{fontFamily: "Fixel"}}>
