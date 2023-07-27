@@ -1,21 +1,23 @@
 import React, {useEffect, useRef} from 'react';
 import {motion, useInView, useAnimation } from 'framer-motion';
 
-export const Portal = ({children, width='fit-content', delay = 0.25}) => {
+export const Portal = ({children, width='fit-content', delay = 0.25, isLoaded}) => {
   const ref = useRef();
   const isInView = useInView(ref);
   const mainControls = useAnimation();
   const slideControls = useAnimation();
 
   useEffect(() => {
-    if(isInView) {
+    if(isInView 
+      && isLoaded
+    ) {
       mainControls.start("visible");
       slideControls.start("visible");
     } else {
       mainControls.start("hidden");
       slideControls.start("hidden");
     }
-  }, [isInView])
+  }, [isInView, isLoaded])
 
   return (
     <div ref={ref} style={{position: 'relative', width, 
@@ -52,7 +54,8 @@ export const Portal = ({children, width='fit-content', delay = 0.25}) => {
             left: 0,
             right: 0,
             background: "#0CFC92",
-            zIndex: 200000
+            zIndex: 200000,
+            // borderRadius: '5px',
           }}
         >
         </motion.div>

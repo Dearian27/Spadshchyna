@@ -1,14 +1,22 @@
-import { OrbitControls } from '@react-three/drei';
+import { Loader, OrbitControls, useProgress } from '@react-three/drei';
 import { Canvas, useFrame } from '@react-three/fiber';
 import Lights from '../../components/Lights';
-import { Background } from '../../components/Background';
 import { Eggscene } from '../../components/Eggscene';
 import { useSpring, animated } from '@react-spring/three';
 import Fullpage, {FullPageSections, FullpageSection, FullpageNavigation} from '@ap.cx/react-fullpage';
 import {Reveal} from '../../components/framer/Reveal';
 import { Portal } from '../../components/framer/Portal';
+import React, { Suspense, useEffect, useState } from 'react';
+import { Background } from '../../components/Background';
 
 const KolomuyaScene = () => {
+  const { progress } = useProgress()
+  const [isLoaded, setIsLoaded] = useState(false);
+  useEffect(() => {
+    if(progress === 100) {
+      setIsLoaded(true)
+    }
+  }, [progress])
   const SectionStyle = {
     height: '100vh',
     width: '100%',
@@ -17,71 +25,79 @@ const KolomuyaScene = () => {
     justifyContent: 'center',
     alighItems: 'center',
     backgroundColor: "none",
+    padding: "25px",
   }
 
   return (
     <>
-      <div style={{ position: 'fixed', height: '100vh', width: '100%' }}>
-        <Canvas shadows camera={{ position: [0, 10, 15], fov: 30 }}>
-          <Background />
-          <ambientLight intensity={0.4} />
-          <Lights />
+      <Suspense 
+      // fallback={<UkraineLoader />}
+      fallback={null}
+      >
+        <div style={{ position: 'fixed', height: '100vh', width: '100%' }}>
+          {/* <LazyComponent onLoad={() => setIsLoaded(true)} /> */}
+          <Canvas shadows camera={{ position: [0, 10, 15], fov: 30 }}>
+            <Background />
+            <ambientLight intensity={0.4} />
+            <Lights />
+            <OrbitControls
+              // enableZoom={true}
+              makeDefault
+              minPolarAngle={Math.PI / 3}
+              maxPolarAngle={Math.PI / 3}
+              // minDistance={7}
+              // maxDistance={20}
+              />
+            {/* <PointerLockControls /> */}
+            <Eggscene position={[1, 0, -2]} rotation-y={(2 * Math.PI) / 6} />
+          </Canvas>
+        </div>
+      </Suspense>
 
-          <OrbitControls
-            enableZoom={false}
-            makeDefault
-            minPolarAngle={Math.PI / 3}
-            maxPolarAngle={Math.PI / 3}
-            // minDistance={7}
-            // maxDistance={20}
-          />
-          {/* <PointerLockControls /> */}
-          <Eggscene position={[1, 0, -2]} rotation-y={(2 * Math.PI) / 6} />
-        </Canvas>
-      </div>
-      <Fullpage>
-        <FullpageNavigation style={{zIndex: 10001}} />
-        <FullPageSections>
-          {/* first slide */}
-          <FullpageSection style={SectionStyle}>
-            <Reveal>
-            <h1 style={{fontFamily: "Fixel", textTransform: 'uppercase', fontSize: 45}}>
-              Музей Писанки
-            </h1>
+        <Fullpage>
+          <FullpageNavigation style={{zIndex: 10001}} />
+          <FullPageSections>
+            {/* first slide */}
+            <FullpageSection style={SectionStyle}>
+              <Reveal isLoaded={isLoaded}>
+              <h1 style={{fontFamily: "Fixel", textTransform: 'uppercase', fontSize: 45, color: 'white'}}>
+                Музей Писанки
+              </h1>
+              </Reveal>
+              <Portal isLoaded={isLoaded}>
+              <h1 style={{fontFamily: "Fixel", textTransform: 'uppercase', color: 'white'}}>
+                Місто: Коломия
+              </h1>
+              </Portal>
+              <Portal isLoaded={isLoaded}>
+              <h1 style={{fontFamily: "Fixel", textTransform: 'uppercase', color: 'white'}}>
+                Область: Івано-франківська
+              </h1>
+              </Portal>
+            </FullpageSection>
+            <FullpageSection style={SectionStyle}>
+            <Reveal isLoaded={isLoaded}>
+              <h3 style={{fontFamily: "Fixel", color: 'white'}}>
+                This is the 2st screen.
+              </h3>
+              </Reveal>
+            </FullpageSection>
+            <FullpageSection style={SectionStyle}>
+            <Reveal isLoaded={isLoaded}>
+              <h3 style={{fontFamily: "Fixel", color: 'white'}}>
+                This is the 3st screen.
+              </h3>
             </Reveal>
-            <Portal>
-            <h1 style={{fontFamily: "Fixel", textTransform: 'uppercase'}}>
-              Місто: Коломия
-            </h1>
-            </Portal>
-            <Portal>
-            <h1 style={{fontFamily: "Fixel", textTransform: 'uppercase'}}>
-              Область: Івано-франківська
-            </h1>
-            </Portal>
-          </FullpageSection>
-          <FullpageSection style={SectionStyle}>
-          <Reveal>
-            <h3 style={{fontFamily: "Fixel"}}>
-              This is the 1st screen.
-            </h3>
+            <Reveal isLoaded={isLoaded} delay={0.45}>
+              <h2>some description</h2>
             </Reveal>
-          </FullpageSection>
-          <FullpageSection style={SectionStyle}>
-          <Reveal>
-            <h3 style={{fontFamily: "Fixel"}}>
-              This is the 1st screen.
-            </h3>
-          </Reveal>
-          <Reveal delay={0.45}>
-            <h2> some description</h2>
-          </Reveal>
-          <Reveal delay={0.60}>
-            <span>Lorem ispum dolor and something like that</span>
-          </Reveal>
-          </FullpageSection>
-        </FullPageSections>
-      </Fullpage>
+            <Reveal isLoaded={isLoaded} delay={0.60}>
+              <span>Lorem ispum dolor and something like that</span>
+            </Reveal>
+            </FullpageSection>
+          </FullPageSections>
+        </Fullpage>
+    <Loader style={{position: 'fixed'}} />
     </>
   );
 };

@@ -1,17 +1,20 @@
 import React, {useEffect, useRef} from 'react';
 import {motion, useInView, useAnimation } from 'framer-motion';
 
-export const Reveal = ({children, width='fit-content', delay = 0.25}) => {
+export const Reveal = ({children, width='fit-content', delay = 0.25, isLoaded}) => {
   const ref = useRef();
   const isInView = useInView(ref);
   const mainControls = useAnimation();
+
   useEffect(() => {
-    if(isInView) {
+    if(isInView 
+      && isLoaded
+    ) {
       mainControls.start("visible");
     } else {
       mainControls.start("hidden");
     }
-  }, [isInView])
+  }, [isInView, isLoaded])
 
   return (
     <div ref={ref} style={{position: 'relative', width, 
