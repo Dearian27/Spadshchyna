@@ -51,6 +51,20 @@ export function Ruins(props) {
     },
     delay:  3000,
   });
+  const { columnScaleY } = useSpring({
+    from: {
+      columnScaleY: 0,
+    },
+    to: [{ 
+      columnScaleY: 0.035,
+     }],
+    config: {
+      mass: 5,
+      tension: 400,
+      friction: 50,
+    },
+    delay:  3500,
+  });
 
   const { nodes, materials } = useGLTF('/models/ruins.gltf')
   return (
@@ -442,7 +456,7 @@ export function Ruins(props) {
         <mesh geometry={nodes.Cube_91.geometry} material={materials['Material.007']} position={[36.352, -1.238, -10.591]} />
         <mesh geometry={nodes.Cube_92.geometry} material={materials['Material.007']} position={[56.594, -1.238, 14.002]} />
       </animated.group>
-      <group position={[-1.019, 0.26, 1.85]} rotation={[Math.PI / 2, 0, 0]} scale={0.035}>
+      <group position={[-1.019, 0.26, 1.85]} rotation={[Math.PI / 2, 0, 0]} scale={0.035} scale-y={columnScaleY}>
         <mesh geometry={nodes.Cube_4_6.geometry} material={materials['Material.007']} position={[0.002, -0.014, -24.444]} rotation={[Math.PI, 0, Math.PI]} />
         <mesh geometry={nodes.Cube_5_5.geometry} material={materials['Material.007']} position={[0, -0.015, -22.749]} rotation={[Math.PI, 0, Math.PI]} />
         <mesh geometry={nodes.Cube_7_6.geometry} material={materials['Material.007']} position={[-0.002, -0.015, 12.343]} />
@@ -453,7 +467,7 @@ export function Ruins(props) {
         <mesh geometry={nodes.Sweep.geometry} material={materials['Material.008']} position={[-28.477, 19.184, -3.601]} />
         <mesh geometry={nodes.Sweep_1.geometry} material={materials['Material.008']} position={[23.431, 19.184, -4.028]} />
       </animated.group>
-      <group position={[1.346, 0.103, 0.04]} rotation={[Math.PI / 2, 0, 0]} scale={0.035}>
+      <animated.group position={[1.346, 0.103, 0.04]} rotation={[Math.PI / 2, 0, 0]} scale={0.035} scale-y={columnScaleY}>
         <group position={[7.164, 51.903, -4.481]}>
           <mesh geometry={nodes.Cube_7_10.geometry} material={materials['Material.007']} position={[-0.002, -0.014, 12.343]} />
           <mesh geometry={nodes.Cube_8_7.geometry} material={materials['Material.007']} position={[0, -0.015, 10.648]} />
@@ -490,7 +504,7 @@ export function Ruins(props) {
           <mesh geometry={nodes.Cube_8_4.geometry} material={materials['Material.007']} position={[0, -0.015, 10.648]} />
           <mesh geometry={nodes.Cylinder_2.geometry} material={materials['Material.007']} position={[0.063, 0.093, -1.637]} />
         </group>
-      </group>
+      </animated.group>
       <group position={[1.588, -0.227, 1.732]} rotation={[Math.PI / 2, 0, 0]} scale={0.035}>
         <group position={[0, 15.386, -0.196]}>
           <mesh geometry={nodes.Cube_3_0.geometry} material={materials['Material.007']} />
