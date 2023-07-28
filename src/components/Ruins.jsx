@@ -68,7 +68,7 @@ export function Ruins(props) {
 
   const { nodes, materials } = useGLTF('/models/ruins.gltf')
   return (
-    <animated.group {...props} dispose={null} scale={mapScale}>
+    <animated.group {...props} dispose={null} scale={mapScale} rotation={[0, Math.PI / 2, 0]}>
       <animated.group position={[-6.934, -0.064, -1.868]} rotation={[Math.PI / 2, 0, -Math.PI / 2]} position-y={blocksPosY} scale={blocksScale}>
         <group position={[5.521, 128.824, 0]} rotation={[0, 0, -0.035]}>
           <mesh geometry={nodes.Cube_4.geometry} material={materials['Material.007']} position={[2.553, -2.575, 2.456]} rotation={[0, 0, Math.PI]} />
@@ -456,13 +456,13 @@ export function Ruins(props) {
         <mesh geometry={nodes.Cube_91.geometry} material={materials['Material.007']} position={[36.352, -1.238, -10.591]} />
         <mesh geometry={nodes.Cube_92.geometry} material={materials['Material.007']} position={[56.594, -1.238, 14.002]} />
       </animated.group>
-      <group position={[-1.019, 0.26, 1.85]} rotation={[Math.PI / 2, 0, 0]} scale={0.035} scale-y={columnScaleY}>
+      <animated.group position={[-1.019, 0.26, 1.85]} rotation={[Math.PI / 2, 0, 0]} scale={[0.035, 0.035, 0.035]} scale-y={columnScaleY}>
         <mesh geometry={nodes.Cube_4_6.geometry} material={materials['Material.007']} position={[0.002, -0.014, -24.444]} rotation={[Math.PI, 0, Math.PI]} />
         <mesh geometry={nodes.Cube_5_5.geometry} material={materials['Material.007']} position={[0, -0.015, -22.749]} rotation={[Math.PI, 0, Math.PI]} />
         <mesh geometry={nodes.Cube_7_6.geometry} material={materials['Material.007']} position={[-0.002, -0.015, 12.343]} />
         <mesh geometry={nodes.Cube_8_3.geometry} material={materials['Material.007']} position={[0, -0.015, 10.648]} />
         <mesh geometry={nodes.Cylinder.geometry} material={materials['Material.007']} position={[-0.004, 0.087, -5.994]} />
-      </group>
+      </animated.group>
       <animated.group position={[-0.507, 0.217, 2.296]} rotation={[Math.PI / 2, 0, 0]}  position-y={sweepPosY} scale={wallScale}>
         <mesh geometry={nodes.Sweep.geometry} material={materials['Material.008']} position={[-28.477, 19.184, -3.601]} />
         <mesh geometry={nodes.Sweep_1.geometry} material={materials['Material.008']} position={[23.431, 19.184, -4.028]} />
