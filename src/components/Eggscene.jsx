@@ -11,20 +11,7 @@ export function Eggscene(props) {
   const { nodes, materials } = useGLTF('./models/kolomuya.gltf');
   const springs = useSpring({
     scale: props.activeScreen === props.currentScreen ? 1 : 0
-    // scale: 0.01
   })
-  // const springs = useSpring({
-  //   from: {
-  //     scale: 0,
-  //   },
-  //   to: [{ scale: 0.01 }],
-  //   config: {
-  //     mass: 5,
-  //     tension: 400,
-  //     friction: 50,
-  //   },
-  //   delay: 0,
-  // });
 
   const { eggRotation, posY } = useSpring({
     from: {

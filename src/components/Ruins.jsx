@@ -1,11 +1,61 @@
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
+import { useSpring, animated } from '@react-spring/three';
 
 export function Ruins(props) {
+  const { mapScale } = useSpring({
+    from: {
+      mapScale: 0
+    },
+    to: [{ 
+      mapScale: 1,
+     }],
+    config: {
+      mass: 5,
+      tension: 400,
+      friction: 50,
+    },
+    delay: 0,
+  });
+  const { blocksScale, blocksPosY } = useSpring({
+    from: {
+      blocksScale: 0,
+      blocksPosY: -1,
+    },
+    to: [{ 
+      blocksScale: 0.035,
+      blocksPosY: -0.064
+     }],
+    config: {
+      mass: 5,
+      tension: 400,
+      friction: 50,
+    },
+    delay:  3000,
+  });
+  const { wallScale, wallPosY, sweepPosY } = useSpring({
+    from: {
+      wallScale: 0,
+      wallPosY: 0,
+      sweepPosY: 0,
+    },
+    to: [{ 
+      wallScale: 0.035,
+      wallPosY: 0.34,
+      sweepPosY: 0.217,
+     }],
+    config: {
+      mass: 5,
+      tension: 400,
+      friction: 50,
+    },
+    delay:  3000,
+  });
+
   const { nodes, materials } = useGLTF('/models/ruins.gltf')
   return (
-    <group {...props} dispose={null}>
-      <group position={[-6.934, -0.064, -1.868]} rotation={[Math.PI / 2, 0, -Math.PI / 2]} scale={0.035}>
+    <animated.group {...props} dispose={null} scale={mapScale}>
+      <animated.group position={[-6.934, -0.064, -1.868]} rotation={[Math.PI / 2, 0, -Math.PI / 2]} position-y={blocksPosY} scale={blocksScale}>
         <group position={[5.521, 128.824, 0]} rotation={[0, 0, -0.035]}>
           <mesh geometry={nodes.Cube_4.geometry} material={materials['Material.007']} position={[2.553, -2.575, 2.456]} rotation={[0, 0, Math.PI]} />
           <mesh geometry={nodes.Cube_5.geometry} material={materials['Material.007']} position={[-4.673, -2.351, 2.515]} rotation={[0, 0, Math.PI]} />
@@ -96,8 +146,8 @@ export function Ruins(props) {
           <mesh geometry={nodes.Cube_60_instance_8.geometry} material={materials['Material.007']} position={[-4.668, 2.458, -2.276]} />
           <mesh geometry={nodes.Cube_7_instance_8.geometry} material={materials['Material.007']} position={[4.668, -2.478, -2.275]} rotation={[0, 0, Math.PI]} />
         </group>
-      </group>
-      <group position={[2.41, -0.064, -1.154]} rotation={[Math.PI / 2, 0, -Math.PI / 2]} scale={0.035}>
+      </animated.group>
+      <animated.group position={[2.41, -0.064, -1.154]} rotation={[Math.PI / 2, 0, -Math.PI / 2]} position-y={blocksPosY} scale={blocksScale}>
         <group rotation={[0, 0, -0.035]}>
           <mesh geometry={nodes.Cube_4_2.geometry} material={materials['Material.007']} position={[2.553, -2.575, 2.456]} rotation={[0, 0, Math.PI]} />
           <mesh geometry={nodes.Cube_57_2.geometry} material={materials['Material.007']} position={[-2.541, 2.582, 2.454]} />
@@ -188,8 +238,8 @@ export function Ruins(props) {
           <mesh geometry={nodes.Cube_6_instance_16.geometry} material={materials['Material.007']} position={[-2.43, -2.473, -2.273]} rotation={[0, 0, Math.PI]} />
           <mesh geometry={nodes.Cube_7_instance_16.geometry} material={materials['Material.007']} position={[4.668, -2.478, -2.275]} rotation={[0, 0, Math.PI]} />
         </group>
-      </group>
-      <group position={[1.91, -0.064, -3.058]} rotation={[Math.PI / 2, 0, 0]} scale={0.035}>
+      </animated.group>
+      <animated.group position={[1.91, -0.064, -3.058]} rotation={[Math.PI / 2, 0, 0]} position-y={blocksPosY} scale={blocksScale}>
         <group rotation={[0, 0, -0.035]}>
           <mesh geometry={nodes.Cube_4_3.geometry} material={materials['Material.007']} position={[2.553, -2.575, 2.456]} rotation={[0, 0, Math.PI]} />
           <mesh geometry={nodes.Cube_57_3.geometry} material={materials['Material.007']} position={[-2.541, 2.582, 2.454]} />
@@ -280,11 +330,11 @@ export function Ruins(props) {
           <mesh geometry={nodes.Cube_6_instance_24.geometry} material={materials['Material.007']} position={[-2.434, -2.473, -2.274]} rotation={[0, 0, Math.PI]} />
           <mesh geometry={nodes.Cube_7_instance_24.geometry} material={materials['Material.007']} position={[4.658, -2.478, -2.266]} rotation={[0, 0, Math.PI]} />
         </group>
-      </group>
-      <group position={[-1.008, -0.227, 1.732]} rotation={[Math.PI / 2, 0, 0]} scale={0.035}>
+      </animated.group>
+      <animated.group position={[-1.008, -0.227, 1.732]} rotation={[Math.PI / 2, 0, 0]} scale={0.035}>
         <mesh geometry={nodes.Cube_3_0_instance.geometry} material={materials['Material.007']} position={[0, 15.386, -0.196]} />
-      </group>
-      <group position={[0.043, 0.34, 2.997]} rotation={[Math.PI / 2, 0, 0]} scale={0.035}>
+      </animated.group>
+      <animated.group position={[0.043, 0.34, 2.997]} rotation={[Math.PI / 2, 0, 0]} position-y={wallPosY} scale={wallScale}>
         <mesh geometry={nodes.Cube_1.geometry} material={materials['Material.007']} position={[-32.476, 4.559, -14.376]} rotation={[0, 0, Math.PI]} />
         <mesh geometry={nodes.Cube_10.geometry} material={materials['Material.007']} position={[-31.518, 4.174, 9.406]} />
         <mesh geometry={nodes.Cube_11.geometry} material={materials['Material.007']} position={[-34.412, 4.603, 14.098]} rotation={[0, 0, Math.PI]} />
@@ -391,7 +441,7 @@ export function Ruins(props) {
         <mesh geometry={nodes.Cube_90.geometry} material={materials['Material.007']} position={[46.692, -1.593, -6.163]} />
         <mesh geometry={nodes.Cube_91.geometry} material={materials['Material.007']} position={[36.352, -1.238, -10.591]} />
         <mesh geometry={nodes.Cube_92.geometry} material={materials['Material.007']} position={[56.594, -1.238, 14.002]} />
-      </group>
+      </animated.group>
       <group position={[-1.019, 0.26, 1.85]} rotation={[Math.PI / 2, 0, 0]} scale={0.035}>
         <mesh geometry={nodes.Cube_4_6.geometry} material={materials['Material.007']} position={[0.002, -0.014, -24.444]} rotation={[Math.PI, 0, Math.PI]} />
         <mesh geometry={nodes.Cube_5_5.geometry} material={materials['Material.007']} position={[0, -0.015, -22.749]} rotation={[Math.PI, 0, Math.PI]} />
@@ -399,10 +449,10 @@ export function Ruins(props) {
         <mesh geometry={nodes.Cube_8_3.geometry} material={materials['Material.007']} position={[0, -0.015, 10.648]} />
         <mesh geometry={nodes.Cylinder.geometry} material={materials['Material.007']} position={[-0.004, 0.087, -5.994]} />
       </group>
-      <group position={[-0.507, 0.217, 2.296]} rotation={[Math.PI / 2, 0, 0]} scale={0.035}>
+      <animated.group position={[-0.507, 0.217, 2.296]} rotation={[Math.PI / 2, 0, 0]}  position-y={sweepPosY} scale={wallScale}>
         <mesh geometry={nodes.Sweep.geometry} material={materials['Material.008']} position={[-28.477, 19.184, -3.601]} />
         <mesh geometry={nodes.Sweep_1.geometry} material={materials['Material.008']} position={[23.431, 19.184, -4.028]} />
-      </group>
+      </animated.group>
       <group position={[1.346, 0.103, 0.04]} rotation={[Math.PI / 2, 0, 0]} scale={0.035}>
         <group position={[7.164, 51.903, -4.481]}>
           <mesh geometry={nodes.Cube_7_10.geometry} material={materials['Material.007']} position={[-0.002, -0.014, 12.343]} />
@@ -474,7 +524,7 @@ export function Ruins(props) {
         <mesh geometry={nodes.Mesh153_1.geometry} material={materials['Material.005']} />
         <mesh geometry={nodes.Mesh153_2.geometry} material={materials['Material.006']} />
       </group>
-    </group>
+    </animated.group>
   )
 }
 

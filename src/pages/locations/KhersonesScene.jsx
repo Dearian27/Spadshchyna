@@ -67,7 +67,6 @@ const KhersonesScene = () => {
           </Canvas>
         </div>
       </Suspense>
-
         <Fullpage>
           <FullpageNavigation style={{zIndex: 10001}} />
           <FullPageSections>
