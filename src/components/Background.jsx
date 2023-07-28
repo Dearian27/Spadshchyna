@@ -3,7 +3,7 @@ import { Gradient, LayerMaterial } from 'lamina';
 
 import * as THREE from 'three';
 
-export const Background = ({colorA, colorB}) => {
+export const Background = ({ colorA = '#d18754', colorB = '#eeca8d' }) => {
   // files={'./hdri/beach.hdr'}
   return (
     <>
