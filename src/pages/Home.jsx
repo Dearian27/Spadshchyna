@@ -9,8 +9,7 @@ import Header from '../components/Header';
 const Home = () => {
   return (
     <>
-      <Header />
-      <Canvas shadows camera={{ position: [0, 13, 15], fov: 30 }}>
+      <Canvas shadows camera={{ position: [0, 13, 20], fov: 30 }}>
         <Suspense fallback={null}>
           <Background />
           <Experience />

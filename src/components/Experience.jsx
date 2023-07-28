@@ -1,6 +1,6 @@
 import { Html, OrbitControls } from '@react-three/drei';
 import { Map } from '../pages/locations/Map';
-import { Statue } from './Statue';
+import { Museum } from './signs/Museum';
 import Boats from './Boats';
 import { WaterPlane } from './WaterPlane';
 import Lights from './Lights';
@@ -43,14 +43,14 @@ export const Experience = () => {
       <Lights />
       {annotations.map((item, index) => {
         return (
-          <Statue
+          <Museum
             markIndex={index}
             gotoAnnotation={gotoAnnotation}
             selected={selected}
             key={index}
             delay={item.delay}
             position={[item.markPos.x, item.markPos.y, item.markPos.z]}
-            rotation-y={180}
+            rotation-y={item.markRotation}
             route={item.route}
           />
         );
@@ -61,11 +61,12 @@ export const Experience = () => {
       <Boats />
       <WaterPlane />
       <OrbitControls
-      //   makeDefault
-      //   minPolarAngle={0}
-      //   maxPolarAngle={Math.PI / 3}
-      //   minDistance={17}
-      //   maxDistance={30}
+        makeDefault
+        minPolarAngle={0}
+        maxPolarAngle={Math.PI / 3}
+        minDistance={17}
+        maxDistance={30}
+        enablePan={false}
       />
     </>
   );
