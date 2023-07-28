@@ -9,11 +9,12 @@ import { Portal } from '../../components/framer/Portal';
 import React, { Suspense, useEffect, useState } from 'react';
 import { Background } from '../../components/Background';
 import { SlideCheck } from '../../components/framer/SlideCheck'; 
+import Camera from '../../components/Camera';
 
 const colors = [
   {colorA: '#d18754', colorB: '#eeca8d'},
+  {colorA: '#ff3b48', colorB: '#ffc35b'},
   {colorA: '#d18754', colorB: '#eeca8d'},
-  {colorA: '#ff3b48', colorB: '#ffc35b'}
 ]
 
 const KolomuyaScene = () => {
@@ -49,13 +50,15 @@ const KolomuyaScene = () => {
       fallback={null}
       >
         <div style={{ position: 'fixed', height: '100vh', width: '100%' }}>
-          {/* <LazyComponent onLoad={() => setIsLoaded(true)} /> */}
-          <Canvas shadows camera={{ position: [0, 10, 15], fov: 30 }}>
+          <Canvas shadows 
+          camera={{ position: [0, 10, 15], fov: 30 }}
+          >
             <Background colorA={colors[currentScreen].colorA} colorB={colors[currentScreen].colorB} />
             <ambientLight intensity={0.4} />
             <Lights />
+            {/* <Camera /> */}
             <OrbitControls
-              // enableZoom={true}
+              enableZoom={true}
               makeDefault
               minPolarAngle={Math.PI / 3}
               maxPolarAngle={Math.PI / 3}
@@ -63,7 +66,9 @@ const KolomuyaScene = () => {
               // maxDistance={20}
               />
             {/* <PointerLockControls /> */}
-            <Eggscene position={[1, 0, -2]} rotation-y={(2 * Math.PI) / 6} />
+            <Eggscene position={[1, 0, -2]} rotation-y={(2 * Math.PI) / 6} 
+            activeScreen={0} currentScreen={currentScreen}
+             />
           </Canvas>
         </div>
       </Suspense>
@@ -74,7 +79,7 @@ const KolomuyaScene = () => {
 
             {/* first slide */}
             <FullpageSection style={SectionStyle}>
-            <SlideCheck index={1} setCurrentScreen={setCurrentScreen} />
+            <SlideCheck index={0} setCurrentScreen={setCurrentScreen} />
               <Reveal isLoaded={isLoaded}>
               <h1 style={{fontFamily: "Fixel", textTransform: 'uppercase', fontSize: 45, color: 'white'}}>
                 Музей Писанки
@@ -94,7 +99,7 @@ const KolomuyaScene = () => {
 
             {/* second slide */}
             <FullpageSection style={SectionStyle}>
-            <SlideCheck index={2} setCurrentScreen={setCurrentScreen} />
+            <SlideCheck index={1} setCurrentScreen={setCurrentScreen} />
             <Reveal isLoaded={isLoaded}>
               <h3 style={{fontFamily: "Fixel", color: 'white'}}>
                 This is the 2st screen.
@@ -104,7 +109,7 @@ const KolomuyaScene = () => {
 
             {/* third slide */}
             <FullpageSection style={SectionStyle}>
-            <SlideCheck index={1} setCurrentScreen={setCurrentScreen} />
+            <SlideCheck index={2} setCurrentScreen={setCurrentScreen} />
             <Reveal isLoaded={isLoaded}>
               <h3 style={{fontFamily: "Fixel", color: 'white'}}>
                 This is the 3st screen.

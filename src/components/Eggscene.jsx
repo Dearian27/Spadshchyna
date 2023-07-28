@@ -9,6 +9,22 @@ import { useSpring, animated } from '@react-spring/three';
 
 export function Eggscene(props) {
   const { nodes, materials } = useGLTF('./models/kolomuya.gltf');
+  const springs = useSpring({
+    scale: props.activeScreen === props.currentScreen ? 1 : 0
+    // scale: 0.01
+  })
+  // const springs = useSpring({
+  //   from: {
+  //     scale: 0,
+  //   },
+  //   to: [{ scale: 0.01 }],
+  //   config: {
+  //     mass: 5,
+  //     tension: 400,
+  //     friction: 50,
+  //   },
+  //   delay: 0,
+  // });
 
   const { eggRotation, posY } = useSpring({
     from: {
@@ -43,7 +59,7 @@ export function Eggscene(props) {
   });
 
   return (
-    <group {...props} dispose={null}>
+    <animated.group {...props} dispose={null} scale={springs.scale}>
       {/* Buildings */}
       <group position={[0.075, -0.621, 0.002]} rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
         <group position={[120.174, 143.088, -27.144]} rotation={[-Math.PI, 0, 2.967]} scale={-1}>
@@ -982,7 +998,7 @@ export function Eggscene(props) {
         <mesh geometry={nodes.Sphere006.geometry} material={materials['Material.009']} />
         <mesh geometry={nodes.Sphere006_1.geometry} material={materials['Material.012']} />
       </animated.group>
-    </group>
+    </animated.group>
   );
 }
 
