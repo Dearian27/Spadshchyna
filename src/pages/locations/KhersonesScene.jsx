@@ -1,7 +1,6 @@
 import { Loader, OrbitControls, useProgress } from '@react-three/drei';
 import { Canvas, useFrame } from '@react-three/fiber';
 import Lights from '../../components/Lights';
-import { Eggscene } from '../../components/Eggscene';
 import { useSpring, animated } from '@react-spring/three';
 import Fullpage, {FullPageSections, FullpageSection, FullpageNavigation} from '@ap.cx/react-fullpage';
 import {Reveal} from '../../components/framer/Reveal';
@@ -9,14 +8,15 @@ import { Portal } from '../../components/framer/Portal';
 import React, { Suspense, useEffect, useState } from 'react';
 import { Background } from '../../components/Background';
 import { SlideCheck } from '../../components/framer/SlideCheck'; 
+import { Ruins } from '../../components/Ruins';
 
 const colors = [
-  {colorA: '#d18754', colorB: '#eeca8d'},
-  {colorA: '#ff3b48', colorB: '#ffc35b'},
-  {colorA: '#d18754', colorB: '#eeca8d'},
+  {colorA: '#69f6e5', colorB: '#aa8dee'},
+  {colorA: '#fc3bff', colorB: '#9775ff'},
+  {colorA: '#47f6a2', colorB: '#71a3ff'},
 ]
 
-const KolomyaScene = () => {
+const KhersonesScene = () => {
   const { progress } = useProgress()
   const [currentScreen, setCurrentScreen] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -28,9 +28,6 @@ const KolomyaScene = () => {
       setIsLoaded(true)
     }
   }, [progress])
-  useEffect(() => {
-    console.log(currentScreen);
-  }, [currentScreen])
   const SectionStyle = {
     height: '100vh',
     width: '100%',
@@ -63,10 +60,9 @@ const KolomyaScene = () => {
               maxPolarAngle={Math.PI / 3}
               // minDistance={7}
               // maxDistance={20}
-              />
-            {/* <PointerLockControls /> */}
-            <Eggscene position={[1, 0, -2]} rotation-y={(2 * Math.PI) / 6} 
-            activeScreen={0} currentScreen={currentScreen}
+            />
+            <Ruins position={[1, 0, -2]} rotation-y={(2 * Math.PI) / 6} 
+              activeScreen={0} currentScreen={currentScreen}
              />
           </Canvas>
         </div>
@@ -81,17 +77,17 @@ const KolomyaScene = () => {
             <SlideCheck index={0} setCurrentScreen={setCurrentScreen} />
               <Reveal isLoaded={isLoaded}>
               <h1 style={{fontFamily: "Fixel", textTransform: 'uppercase', fontSize: 45, color: 'white'}}>
-                Музей Писанки
+                Руїни Херсонесу
               </h1>
               </Reveal>
-              <Portal isLoaded={isLoaded} bgc={'#d18754'}>
+              <Portal isLoaded={isLoaded} bgc={'#aa8dee'}>
               <h1 style={{fontFamily: "Fixel", textTransform: 'uppercase', color: 'white'}}>
-                Місто: Коломия
+                Місто: Севастополь
               </h1>
               </Portal>
-              <Portal isLoaded={isLoaded} bgc={'#d18754'}>
+              <Portal isLoaded={isLoaded} bgc={'#aa8dee'}>
               <h1 style={{fontFamily: "Fixel", textTransform: 'uppercase', color: 'white'}}>
-                Область: Івано-франківська
+                Автономна Республіка Крим
               </h1>
               </Portal>
             </FullpageSection>
@@ -101,7 +97,7 @@ const KolomyaScene = () => {
             <SlideCheck index={1} setCurrentScreen={setCurrentScreen} />
             <Reveal isLoaded={isLoaded}>
               <h3 style={{fontFamily: "Fixel", color: 'white'}}>
-                This is the 2st screen.
+                Це другий екран
               </h3>
               </Reveal>
             </FullpageSection>
@@ -111,7 +107,7 @@ const KolomyaScene = () => {
             <SlideCheck index={2} setCurrentScreen={setCurrentScreen} />
             <Reveal isLoaded={isLoaded}>
               <h3 style={{fontFamily: "Fixel", color: 'white'}}>
-                This is the 3st screen.
+                Це третій екран
               </h3>
             </Reveal>
             <Reveal isLoaded={isLoaded} delay={0.45}>
@@ -128,4 +124,4 @@ const KolomyaScene = () => {
   );
 };
 
-export default KolomuyaScene;
+export default KhersonesScene;

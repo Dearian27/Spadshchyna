@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import {motion, useInView, useAnimation } from 'framer-motion';
 
-export const Portal = ({children, width='fit-content', delay = 0.25, isLoaded}) => {
+export const Portal = ({children, width='fit-content', delay = 0.25, isLoaded, bgc = "#0CFC92"}) => {
   const ref = useRef();
   const isInView = useInView(ref);
   const mainControls = useAnimation();
@@ -24,6 +24,7 @@ export const Portal = ({children, width='fit-content', delay = 0.25, isLoaded}) 
     overflow: "hidden",
      zIndex: 100100}}>
         <motion.div
+          style={{fontFamily: "Fixel"}}
           variants={{
             // hidden: {opacity: 0},
             hidden: {opacity: 0, y: '2em'},
@@ -53,7 +54,7 @@ export const Portal = ({children, width='fit-content', delay = 0.25, isLoaded}) 
             bottom: 0,
             left: 0,
             right: 0,
-            background: "#0CFC92",
+            background: bgc,
             zIndex: 200000,
             // borderRadius: '5px',
           }}
