@@ -70,7 +70,7 @@ const KolomuyaScene = () => {
             />
             {/* <PointerLockControls /> */}
             <Eggscene
-              position={[1, 0, -2]}
+              position={[3, 0, -2]}
               rotation-y={(2 * Math.PI) / 6}
               activeScreen={0}
               currentScreen={currentScreen}
